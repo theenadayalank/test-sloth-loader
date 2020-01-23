@@ -1,0 +1,17 @@
+<Input type="text" @value={{this.searchText}} />
+
+<br>
+
+{{#if this.filteredUsers.length}}
+  <SlothLoader 
+    @data={{this.filteredUsers}}
+    @tagName="" 
+    as |sloth| 
+  >
+    <ul id="slothScroll" class="sloth-container">
+      {{#each sloth.dataForCurrentView as | user |}}
+        <DisplayName @name={{user}} />
+      {{/each}}
+    </ul>
+  </SlothLoader>
+{{/if}}
